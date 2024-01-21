@@ -1,0 +1,64 @@
+<!--
+Registration Webpage
+//Somunachimso Bernard Nzenwa_AGG801_@00652263
+-->
+<?php require_once ("Template/header.phtml"); ?>
+<p>Welcome to Lightning Chargers! An electric vehicle charging site.</p>
+<p>This system allows you to log in or signup securely through password encryption.</p>
+<p>Users can send a request to use a charge point.</p>
+<p>It was built with appropriate data, tested accordingly and has a variety of features, including security.</p>
+<p>Simply login below to get started!</p>
+<br>
+<form id="signup" method="post" action="signup.php" enctype="multipart/form-data">
+    <p>Fill in the following information</p>
+
+    <label for="username">Username<span style="color: red">&#42</span></label>
+    <input type="email" id="username" name="username" class="form-control" placeholder="Email" oninput="validateName()" required>
+
+
+    <p><small class="text-danger"><?php if(isset($view->userWrong)) {echo $view->userWrong;}?></small></p>
+
+
+
+    <label for="confirmUsername">Confirm Username<span style="color: red">&#42</span></label>
+    <input type="email" id="confirmUsername" name="confirmUsername" class="form-control" placeholder="Confirm Email" oninput="validateName()" required>
+
+    <p id="userMismatch"><small class="text-danger"><?php if(isset($view->userMismatch)) {echo $view->userMismatch;}?></small></p>
+
+    <label for="firstName">First Name<span style="color: red">&#42</span></label>
+    <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" required>
+
+    <label for="lastName">Last Name<span style="color: red">&#42</span></label>
+    <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" required>
+
+    <label>Gender</label><br>
+    <label for="male">Male</label>
+    <input type="radio" id="male" name="gender" value="Male">
+    <label for="female">Female</label>
+    <input type="radio" id="female" name="gender" value="Female">
+    <br>
+
+    <label for="phoneNumber">Phone Number</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone Number">
+
+    <label for="password">Password<span style="color: red">&#42</span><small> Must be at least 8 characters long</small></label>
+    <input type="password" id="password" name="password" class="form-control" placeholder="Password" pattern="{8,}" oninput="validatePwd()" required>
+
+    <label for="confirmPassword">Confirm Password<span style="color: red">&#42</span></label>
+    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" pattern="{8,}" oninput="validatePwd()" required>
+
+
+
+    <p id="userPwd"><small class="text-danger">
+            <?php if(isset($view->passMismatch))
+                {
+                    echo $view->passMismatch;
+                } ?>
+        </small></p>
+
+    <button type="submit" class="loginBtn" name="signupBtn" value="Sign up">Sign up</button>
+    <p class="backLink">Already have an account? <a href="login.php"><strong>Log in</strong></a> instead!</p>
+</form>
+<?php
+require_once("Template/footer.phtml");
+?>

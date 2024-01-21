@@ -1,0 +1,13 @@
+<?php require_once ("Template/header.phtml"); ?>
+<form id="searchForm" method="get" action="search.php" enctype="application/x-www-form-urlencoded">
+    <label for="search">Search for a charge point</label><br>
+    <div>
+        <input type="text" id="search" name="search" placeholder="Search..." required>
+    </div>
+    <ul class="list-group" id="txtHint"></ul>
+</form>
+<div id="Map"></div>
+<script src="/OpenLayers-2.13.1/OpenLayers.js"></script>
+<script src="/js/mapscripts.js" type="text/javascript"></script>
+<script src="/js/liveSearchScripts.js" type="text/javascript"></script>
+<?php require_once("Template/footer.phtml"); ?>

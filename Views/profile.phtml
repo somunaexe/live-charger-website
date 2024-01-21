@@ -1,0 +1,35 @@
+<!--
+Registration Webpage
+//Somunachimso Bernard Nzenwa_AGG801_@00652263
+-->
+<?php require_once ("Template/header.phtml"); ?>
+<form id="details" method="post" action="profile.php" enctype="multipart/form-data">
+    <p class="text-center"><strong>MY DETAILS</strong></p>
+    <p><small class="text-center "><?php if(isset($view->success)) {echo $view->success;}?></small></p>
+
+    <label for="user_id">User ID<span style="color: red">&#42</span></label>
+    <input type="text" id="user_id" name="user_id" class="form-control" placeholder="User ID" value="<?php echo $User->getUserId();?>" readonly>
+
+    <label for="username">Username<span style="color: red">&#42</span></label>
+    <input type="email" id="username" name="username" class="form-control" placeholder="Email" value="<?php echo $User->getUsername();?>" readonly>
+    <p><small class="text-danger"><?php if(isset($view->userWrong)) {echo $view->userWrong;}?></small></p>
+
+    <label for="firstName">First Name<span style="color: red">&#42</span></label>
+    <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" value="<?php echo $User->getFirstName();?>" readonly>
+
+    <label for="lastName">Last Name<span style="color: red">&#42</span></label>
+    <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" value="<?php echo $User->getLastName();?>" readonly>
+
+    <label>Gender</label><br>
+    <label for="male">Male</label>
+    <input type="radio" id="male" name="gender" value="Male" <?php if ($User->getGender() === "Male") echo 'checked'?> readonly>
+    <label for="female">Female</label>
+    <input type="radio" id="female" name="gender" value="Female" <?php if ($User->getGender() === "Female") echo 'checked'?> readonly>
+    <br>
+
+    <label for="phoneNumber">Phone Number</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone Number" value="<?php echo $User->getPhoneNumber();?>" readonly>
+
+    <button type="submit" id="updateBtn" name="updateBtn" class="loginBtn" value="Update">Update</button>
+</form>
+<?php require_once("Template/footer.phtml"); ?>

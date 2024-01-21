@@ -1,0 +1,29 @@
+<?php require_once ("Template/header.phtml"); ?>
+
+
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-5">
+
+        <p><strong>Fill in the following</strong></p>
+        <form id="request" method="post" enctype="application/x-www-form-urlencoded"  action="malito:somunanzenwa@gmail.com">
+            <label for="date" class="form-label">Date<span style="color: red">&#42</span></label>
+
+
+            <input type="date" id="date" name="date" min="<?php print date('mm-dd-yyyy');?>" class="form-control" placeholder="Date" required>
+            <br>
+
+            <label for="time" class="form-label">Time<span style="color: red">&#42</span></label>
+            <input type="time" id="time" name="time" class="form-control" placeholder="Time" required>
+            <br>
+            <label for="duration" class="form-label">Duration<span style="color: red">&#42</span></label>
+            <div class="input-group">
+                <input type="number" id="duration" name="duration" class="form-control" min="1" placeholder="Duration" required>
+                <div class="input-group-text">min</div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" form="request" name="requestBtn" value="Request">Request</button>
+        </form>
+    </div>
+</div>
+<?php require_once ("Template/footer.phtml"); ?>
+
